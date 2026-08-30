@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength & Stability Circuit</title>
+<style>
+  :root {
+    --ink: #1c1c1e;
+    --sub: #6b6b70;
+    --line: #e4e4e7;
+    --accent: #2f6f4e;
+    --accent-soft: #eaf3ee;
+    --bg: #fafaf8;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 32px 16px 64px;
+  }
+  .sheet {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--sub);
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .pill {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .days {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .day {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .day.done {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .exercise {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .exercise h2 {
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .exercise .num {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .exercise .target {
+    color: var(--sub);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .cue {
+    font-size: 0.9rem;
+    color: #3a3a3c;
+    margin: 6px 0 14px;
+  }
+  .sets {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .set {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+  .set label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--sub);
+    margin-bottom: 4px;
+  }
+  .set input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    outline: none;
+    border-bottom: 1px dashed var(--line);
+    padding: 2px 0;
+  }
+  .footer-note {
+    font-size: 0.8rem;
+    color: var(--sub);
+    text-align: center;
+    margin-top: 24px;
+  }
+  .reset {
+    display: block;
+    margin: 24px auto 0;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--sub);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .reset:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>Strength & Stability Circuit</h1>
+  <div class="subtitle">Complements pickleball (2x/wk) and golf (1x/wk). Equipment: exercise ball, 2x 7lb dumbbells, yoga mat, medium resistance band.</div>
+
+  <div class="meta">
+    <span class="pill">4x per week</span>
+    <span class="pill">3 sets per move</span>
+    <span class="pill">~25–30 min</span>
+    <span class="pill">Rest 30–45 sec</span>
+  </div>
+
+  <div class="days" id="days">
+    <div class="day" data-day="1">Day 1</div>
+    <div class="day" data-day="2">Day 2</div>
+    <div class="day" data-day="3">Day 3</div>
+    <div class="day" data-day="4">Day 4</div>
+  </div>
+
+  <div class="exercise">
+    <h2><span class="num">1</span> Band Pull-Aparts <span class="target">shoulders / rotator cuff</span></h2>
+    <div class="cue">Hold band at chest height, arms extended. Pull apart until it touches your chest, squeezing shoulder blades together.</div>
+    <div class="sets">
+      <div class="set"><label>Set 1 (15)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 2 (15)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 3 (15)</label><input type="text" placeholder="reps"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h2><span class="num">2</span> Ball Plank w/ Shin Roll-Ins <span class="target">core / anti-rotation</span></h2>
+    <div class="cue">Forearms or hands on mat, shins on ball, plank position. Roll ball toward chest by pulling knees in, keeping hips level.</div>
+    <div class="sets">
+      <div class="set"><label>Set 1 (10-12)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 2 (10-12)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 3 (10-12)</label><input type="text" placeholder="reps"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h2><span class="num">3</span> Dumbbell Goblet Squats <span class="target">legs / glutes</span></h2>
+    <div class="cue">Hold dumbbell(s) vertically at chest, squat down, chest up, elbows brushing inside knees.</div>
+    <div class="sets">
+      <div class="set"><label>Set 1 (12-15)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 2 (12-15)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 3 (12-15)</label><input type="text" placeholder="reps"></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <h2><span class="num">4</span> Ball Hamstring Bridge Curls <span class="target">posterior chain / balance</span></h2>
+    <div class="cue">Lie on mat, heels on ball, lift hips to bridge, curl ball toward glutes, extend back out.</div>
+    <div class="sets">
+      <div class="set"><label>Set 1 (10-12)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 2 (10-12)</label><input type="text" placeholder="reps"></div>
+      <div class="set"><label>Set 3 (10-12)</label><input type="text" placeholder="reps"></div>
+    </div>
+  </div>
+
+  <div class="footer-note">Tap a day above to mark it done for the week. Refreshing the page resets everything below.</div>
+  <button class="reset" id="resetBtn">Reset days</button>
+</div>
+
+<script>
+  document.querySelectorAll('.day').forEach(function(el) {
+    el.addEventListener('click', function() {
+      el.classList.toggle('done');
+    });
+  });
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    document.querySelectorAll('.day.done').forEach(function(el) {
+      el.classList.remove('done');
+    });
+  });
+</script>
+</body>
+</html>
